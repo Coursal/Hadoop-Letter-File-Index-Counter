@@ -36,16 +36,6 @@ _`(letter, (filename, max_num_of_occurences))`_
 
 In order to make those pairs work within the Hadoop environment, we need to create specific classes (`FilenameSumCompositeKey`, `LetterFilenameCompositeKey`) to make objects and hold the data for the composite keys and values during the execution rounds.
 
-## Execution Guide
-While being in the project directory:
-1. `mkdir Hadoop-Letter-File-Index-Counter_classes`
-
-2. `javac -classpath "$(yarn classpath)" -d wcount_classes LetterFileIndexCounter.java FilenameSumCompositeKey.java LetterFilenameCompositeKey.java`
-
-3. `jar -cvf Hadoop-Letter-File-Index-Counter.jar -C Hadoop-Letter-File-Index-Counter_classes/ .`
-
-4. `hadoop jar Hadoop-Letter-File-Index-Counter.jar org.myorg.Hadoop-Letter-File-Index-Counter input inbetween output`
-
 ## Project Info
 * All the input files are located in the `input` directory with 20 files that contain a small phrase from ![Metamorphosis](https://www.gutenberg.org/files/5200/5200-h/5200-h.htm) by Franz Kafka.
 * All the files of inbetween results will appear to the distributed file system under the `inbetween` directory
