@@ -36,8 +36,34 @@ _`(letter, (filename, max_num_of_occurences))`_
 
 In order to make those pairs work within the Hadoop environment, we need to create specific classes (`FilenameSumCompositeKey`, `LetterFilenameCompositeKey`) to make objects and hold the data for the composite keys and values during the execution rounds.
 
+## Execution Guide
+_(while being in the project directory)_
+
+* Create the input directory in the HDFS
+`hadoop fs -mkdir input`
+
+* Copy all the files from the local _input_ directory to the HDFS _input_ directory
+`hadoop fs -put ./input input`
+
+* Create a directory to store the .class files
+`mkdir HLFIC_classes`
+
+* Compile the project
+`javac -classpath "$(yarn classpath)" -d HLFIC_classes LetterFileIndexCounter.java LetterFilenameCompositeKey.java FilenameSumCompositeKey.java`
+
+* Create the jar file of the project
+`jar -cvf HLFIC.jar -C HLFIC_classes/ .`
+
+* Run the project 
+`hadoop jar HLFIC.jar org.myorg.LetterFileIndexCounter input inbetween output`
+
+* Print the results to the terminal
+`hadoop fs -cat output/part-00000`
+
+
 ## Project Info
 * All the input files are located in the `input` directory with 20 files that contain a small phrase from ![Metamorphosis](https://www.gutenberg.org/files/5200/5200-h/5200-h.htm) by Franz Kafka.
 * All the files of inbetween results will appear to the distributed file system under the `inbetween` directory
 * All the files of the final results will appear to the distributed file system under the `output` directory
 * Number of reducers can be changed for both execution rounds
+* Sister project with the ![Spark implementation](https://github.com/Coursal/Spark-Letter-File-Index-Counter)
