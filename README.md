@@ -66,4 +66,4 @@ _(while being in the project directory)_
 * All the files of inbetween results will appear to the distributed file system under the `inbetween` directory
 * All the files of the final results will appear to the distributed file system under the `output` directory
 * Number of reducers can be changed for both execution rounds
-* Sister project with the ![Spark implementation](https://github.com/Coursal/Spark-Letter-File-Index-Counter)
+* Also check out the ![Spark implementation](https://github.com/Coursal/Spark-Letter-File-Index-Counter)
