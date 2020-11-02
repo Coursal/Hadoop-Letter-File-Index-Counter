@@ -62,7 +62,7 @@ _(while being in the project directory)_
 
 
 ## Project Info
-* All the input files are located in the `input` directory with 20 files that contain a small phrase from ![Metamorphosis](https://www.gutenberg.org/files/5200/5200-h/5200-h.htm) by Franz Kafka.
+* All the input files are located in the `input` directory with 20 files that contain a small phrase from Metamorphosis by Franz Kafka.
 * All the files of inbetween results will appear to the distributed file system under the `inbetween` directory
 * All the files of the final results will appear to the distributed file system under the `output` directory
 * Number of reducers can be changed for both execution rounds
